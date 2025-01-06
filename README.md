@@ -39,31 +39,6 @@ Instale as dependências usando `pip`:
 
 `pip install -r requirements.txt` 
 
-## 📁 Estrutura do Projeto
-
-A estrutura do projeto é a seguinte:
-
-whatsapp-message-automation/
-│
-├── contacts/              # Lista de contatos (pode ser CSV, JSON, etc.)
-│   ├── contacts.csv       # Exemplo de arquivo com contatos
-│
-├── messages/              # Modelos de mensagens
-│   ├── template.txt       # Template da mensagem a ser enviada
-│
-├── src/                   # Código-fonte do projeto
-│   ├── send_message.py    # Função principal para envio das mensagens
-│   ├── utils.py           # Funções auxiliares (ex: ler contatos, configurar o navegador)
-│   └── ...
-│
-├── logs/                  # Logs de envio das mensagens
-│   └── send_log.txt       # Log dos envios realizados
-│
-├── requirements.txt       # Dependências do Python
-├── README.md              # Este arquivo
-└── .gitignore             # Arquivos a serem ignorados pelo Git
-
-
 ## 🔧 Instruções de Uso
 
 ### 1. **Configuração Inicial**
