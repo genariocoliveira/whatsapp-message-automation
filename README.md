@@ -42,11 +42,12 @@ A estrutura do projeto é simples:
 
 whatsapp-automation-messages/
 │
-├── src/                   # Código-fonte
-│   ├── main.py            # Arquivo principal com a lógica de envio de mensagens
+├── main.py            # Arquivo principal com a lógica de envio de mensagens
 │
-├── requirements.txt       # Dependências do Python
+├── DB.txt       # Dependências do Python
+|
 ├── README.md              # Este arquivo
+|
 └── .gitignore             # Arquivo para ignorar arquivos do Git
 
 
