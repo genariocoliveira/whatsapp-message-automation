@@ -103,14 +103,6 @@ O script valida se os números de telefone estão no formato correto para serem 
 
 O script irá fazer uma pausa de 2 segundos entre o envio de mensagens para não sobrecarregar o processo de automação e garantir a eficiência.
 
-## 📚 Contribuindo
-
-Se você deseja contribuir para o projeto, fique à vontade para enviar um **pull request**. Algumas diretrizes para contribuição:
-
--   **Adicione novas funcionalidades** em branches separadas.
--   **Documente suas alterações** no `README.md` ou no código.
--   **Escreva testes** para novas funcionalidades (se aplicável).
-
 ## 🔒 Licença
 
 Este projeto está licenciado sob a MIT License.
