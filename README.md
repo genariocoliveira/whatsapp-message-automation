@@ -1,124 +1,115 @@
 
-# WhatsApp Message Automation
+# WhatsApp Automation Messages
 
-Bem-vindo ao repositório **WhatsApp Message Automation**! Este projeto tem como objetivo automatizar o envio de mensagens para múltiplos contatos do WhatsApp, facilitando a comunicação em massa com eficiência e sem complicação.
+Bem-vindo ao repositório **WhatsApp Automation Messages**! Este projeto permite o envio de mensagens automatizadas via WhatsApp para uma lista de funcionários cadastrados, com validação de números e uma interface simples para selecionar os destinatários.
 
-Este repositório utiliza a biblioteca **[WhatsApp Web API](https://github.com/mukulhase/WebWhatsapp-Wrapper)** ou outras ferramentas relacionadas para enviar mensagens para uma lista de contatos de maneira simples e programática. Ideal para campanhas, atualizações ou automação de comunicação.
+Este script utiliza a biblioteca **pywhatkit** para enviar mensagens instantâneas via WhatsApp Web, tornando o processo de comunicação mais eficiente e sem complicações.
 
 ## 🚀 Descrição do Projeto
 
-Este projeto oferece uma solução para envio automatizado de mensagens no WhatsApp a partir de uma lista de contatos. Usando a API do WhatsApp Web, o sistema permite que você envie mensagens personalizadas, por grupos ou individualmente, de maneira programada e eficiente.
+Este projeto foi desenvolvido para enviar mensagens de texto automaticamente para uma lista de contatos cadastrados (funcionários) no WhatsApp. Através de uma interface interativa, o usuário pode escolher os destinatários e enviar uma mensagem personalizada para vários contatos simultaneamente.
 
-Com este projeto, você pode:
-
--   **Enviar mensagens em massa** para vários contatos ou grupos.
--   **Automatizar o envio de mensagens** de forma programada, reduzindo o esforço manual.
--   **Personalizar a mensagem** para cada destinatário usando dados de uma lista (ex: nome, data, etc.).
--   **Monitorar os envios** e verificar se as mensagens foram entregues.
+-   **Envia mensagens para contatos cadastrados**.
+-   **Valida o número de telefone** para garantir que o formato esteja correto.
+-   **Permite escolher múltiplos destinatários** e enviar mensagens para eles simultaneamente.
+-   **Usa a biblioteca `pywhatkit`** para enviar mensagens instantâneas via WhatsApp Web.
 
 ## 🛠️ Funcionalidades
 
--   **Envio de mensagens em massa**: Envie mensagens para uma lista de contatos em uma única execução.
--   **Personalização das mensagens**: Personalize o conteúdo das mensagens para cada contato usando placeholders (ex: `{{nome}}`).
--   **Agendamento de envio**: Defina horários específicos para o envio das mensagens.
--   **Logs de envio**: Registre o status de envio das mensagens (enviadas, não entregues, etc.).
--   **Suporte a múltiplos formatos de mensagem**: Envie mensagens de texto, imagens, documentos e mais.
+-   **Cadastro de Funcionários**: Adicione funcionários e seus números de WhatsApp ao dicionário `funcionarios`.
+-   **Validação de Números**: Verifique se os números de telefone seguem o formato correto para envio pelo WhatsApp.
+-   **Envio de Mensagens**: Envie mensagens para um ou mais funcionários selecionados, diretamente via WhatsApp Web.
+-   **Suporte a múltiplos destinatários**: Selecione vários contatos para enviar a mesma mensagem.
+-   **Exibição de Logs**: Acompanhe o sucesso ou falha de cada envio de mensagem.
 
 ## 📝 Requisitos
 
-Antes de rodar o projeto, certifique-se de que você tem o ambiente correto configurado:
+Certifique-se de ter os seguintes requisitos instalados antes de rodar o projeto:
 
 -   **Python** 3.8 ou superior
 -   **Bibliotecas**:
-    -   `selenium` (para automação do navegador)
-    -   `pandas` (para gerenciamento de listas de contatos)
-    -   `time` (para controle de delays)
-    -   **[WhatsApp Web API](https://github.com/mukulhase/WebWhatsapp-Wrapper)** ou biblioteca equivalente
+    -   `pywhatkit` (para automação do WhatsApp)
+    -   `datetime` (para manipulação de datas e horas)
+    -   `time` (para gerenciamento de pausas)
 
 Instale as dependências usando `pip`:
 
-`pip install -r requirements.txt` 
+`pip install pywhatkit` 
+
+## 📁 Estrutura do Projeto
+
+A estrutura do projeto é simples:
+
+whatsapp-automation-messages/
+│
+├── src/                   # Código-fonte
+│   ├── main.py            # Arquivo principal com a lógica de envio de mensagens
+│
+├── requirements.txt       # Dependências do Python
+├── README.md              # Este arquivo
+└── .gitignore             # Arquivo para ignorar arquivos do Git
+
 
 ## 🔧 Instruções de Uso
 
-### 1. **Configuração Inicial**
+### 1. **Instalar as Dependências**
 
-#### 1.1. **Instalação das Dependências**
+Primeiro, instale a biblioteca `pywhatkit` que é utilizada para enviar mensagens via WhatsApp Web:
 
-Primeiro, instale as dependências do projeto com o seguinte comando:
+`pip install pywhatkit` 
 
-`pip install pywhatkit`
-`pip install -r requirements.txt` 
+### 2. **Adicionar Funcionários**
 
-#### 1.2. **Configuração do WebDriver**
+No arquivo `main.py`, adicione os funcionários e seus números no formato internacional (incluindo o código do país) ao dicionário `funcionarios`:
 
-Este projeto utiliza **Selenium WebDriver** para automação do WhatsApp Web. Certifique-se de ter o driver adequado para o navegador de sua preferência:
+```py
+funcionarios = {
+    "João": "+55 11 91234-5678",
+    "Maria": "+55 21 98765-4321"
+}
+```
 
--   **Google Chrome**: Baixe o ChromeDriver
--   **Firefox**: [Baixe o GeckoDriver](https://github.com/mozilla/geckodriver/releases)
+### 3. **Rodando o Script**
 
-Após o download, extraia o arquivo e coloque o executável na mesma pasta onde o código está ou defina o caminho corretamente no código-fonte.
+Para rodar o script, basta executar o arquivo `main.py`:
 
-### 2. **Preparação dos Dados**
+`python src/main.py` 
 
-Você precisa de um arquivo com os contatos para quem as mensagens serão enviadas. O arquivo pode estar no formato CSV ou JSON, e deve conter pelo menos os seguintes campos:
+### 4. **Interação no Console**
 
--   **Nome**: Nome do contato (opcional, mas útil para personalizar a mensagem).
--   **Número**: Número de telefone do contato, incluindo o código do país (ex: +5511998765432).
+Ao rodar o script, será solicitado ao usuário que:
 
-**Exemplo de `contacts.csv`**:
+1.  Digite a mensagem que será enviada.
+2.  Escolha os funcionários (através de números correspondentes, separados por vírgula) para quem deseja enviar a mensagem.
 
-    Nome,Numero
-    João,+5511998765432
-    Maria,+5511987654321
+Por exemplo, a saída será algo assim:
 
+```
+Funcionários disponíveis para receber a mensagem:
+1. João - +55 11 91234-5678
+2. Maria - +55 21 98765-4321
 
-### 3. **Personalização da Mensagem**
+Digite os números correspondentes aos funcionários (separados por vírgula):
+```
 
-O template de mensagem pode ser editado no arquivo `messages/template.txt`. Utilize placeholders como `{{nome}}` para personalizar a mensagem para cada contato.
+Após escolher os funcionários, o script enviará a mensagem para os selecionados. A cada envio, o script aguardará 2 segundos antes de continuar o próximo envio.
 
-**Exemplo de `template.txt`**:
+### 5. **Validação de Números**
 
-    Olá {{nome}}, tudo bem?
-    Estamos enviando essa mensagem para informá-lo sobre nossa nova promoção! Não perca a oportunidade!
+O script valida se os números de telefone estão no formato correto para serem utilizados pelo WhatsApp Web. Caso algum número esteja incorreto, o script exibirá um erro e não tentará enviar a mensagem para aquele contato.
 
-### 4. **Enviando Mensagens**
+### 6. **Pauses entre Envio**
 
-Para enviar as mensagens para os contatos, basta rodar o script principal `send_message.py`.
+O script irá fazer uma pausa de 2 segundos entre o envio de mensagens para não sobrecarregar o processo de automação e garantir a eficiência.
 
-Execute o script da seguinte maneira:
+## 📚 Contribuindo
 
-`python src/send_message.py` 
+Se você deseja contribuir para o projeto, fique à vontade para enviar um **pull request**. Algumas diretrizes para contribuição:
 
-O script abrirá o WhatsApp Web, solicitará que você escaneie o QR Code e, em seguida, começará a enviar as mensagens para os contatos listados. O progresso será registrado no arquivo de log `logs/send_log.txt`.
-
-### 5. **Agendamento de Mensagens**
-
-Se quiser agendar o envio das mensagens para um horário específico, pode usar o Python `schedule` ou agendadores do sistema operacional como `cron` (Linux/Mac) ou o **Agendador de Tarefas** no Windows.
-
-**Exemplo de agendamento com `schedule`**:
-
-    import schedule
-
-    import time
-
-    from src.send_message import send_messages
-
-# Agende o envio para as 9:00 AM todos os dias
-
-    schedule.every().day.at("09:00").do(send_messages)
-
-    while True:
-        schedule.run_pending()
-        time.sleep(1)
-
-### 6. **Logs e Monitoramento**
-
-O status de envio das mensagens será registrado no arquivo de log `logs/send_log.txt`. O log inclui informações sobre mensagens enviadas, erros e mensagens não entregues.
+-   **Adicione novas funcionalidades** em branches separadas.
+-   **Documente suas alterações** no `README.md` ou no código.
+-   **Escreva testes** para novas funcionalidades (se aplicável).
 
 ## 🔒 Licença
 
 Este projeto está licenciado sob a MIT License.
-
-
-
