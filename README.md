@@ -74,7 +74,7 @@ funcionarios = {
 
 Para rodar o script, basta executar o arquivo `main.py`:
 
-`python src/main.py` 
+`python main.py` 
 
 ### 4. **Interação no Console**
 
